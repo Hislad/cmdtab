@@ -624,14 +624,14 @@ static struct config Config = { // cmdtab settings
 	// Behavior
 	.switchApps              = true,
 	.switchWindows           = true,
-	.fastSwitchingForApps    = false,
+	.fastSwitchingForApps    = true,
 	.fastSwitchingForWindows = true,
 	.showSwitcherForApps     = true,
 	.showSwitcherForWindows  = true,
 	.wrapbump                = true,
 	.restoreOnCancel         = false,
 	// Appearance
-	.darkmode                = false,
+	.darkmode                = true,
 	.switcherHeight          = 128,
 	.switcherHorzMargin      =  24,
 	.switcherVertMargin      =  32,
