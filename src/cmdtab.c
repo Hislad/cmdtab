@@ -789,7 +789,12 @@ static void AddToSwitcher(handle hwnd)
 	}
 	// 5. Find existing app with same module filepath
 	struct app *app = null;
-	app = &Apps[AppsCount++];
+		for (int i = 0; i < AppsCount; i++) {
+		if (StringsAreEqual(&filepath, &Apps[i].path)) {
+			app = &Apps[i];
+			break;
+		}
+	}
 	// 6. If app not already tracked, create new app entry
 	if (!app) {
 		if (AppsCount >= countof(Apps)) {
@@ -888,7 +893,7 @@ static void SelectNextWindow(bool applevel, bool reverse, bool wrap)
 	}
 	/*dbg*/struct app *oldApp = SelectedApp;
 	/*dbg*/handle *oldWindow = SelectedWindow;
-	if (false) {
+	if (applevel) {
 		struct app *firstApp = &Apps[0];
 		struct app  *lastApp = &Apps[AppsCount-1];
 		if (reverse) {
